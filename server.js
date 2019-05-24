@@ -33,3 +33,24 @@ var app = http.createServer(
 	).listen(port);
  
  console.log('the server is running');
+
+ /******set up the web socket **********/
+ var io = require('socket.io').listen(app);
+ io.sockets.on('connection',function(socket){
+	 function log(){
+		 var array = ['***server log message: '];
+		 for(var i=0;i<arguments.length;i++)
+		 {
+			 array.push(arguments[i]);
+			 console.log(arguments[i]);
+		 }
+		 socket.emit('log',array);
+		 socket.broadcast.emit('log',array);
+	 }
+		 log('A web site connected to the server');
+
+	 socket.on('disconnect',function(socket){
+		log('A web site disconnected from the server');
+	});
+ }
+ );
