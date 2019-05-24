@@ -1,0 +1,26 @@
+{
+  "name": "reversi",
+  "version": "1.0.0",
+  "description": "game of reversi",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fromroots/reversiwebapp.git"
+  },
+  "keywords": [
+    "reversi"
+  ],
+  "author": "saurabh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fromroots/reversiwebapp/issues"
+  },
+  "homepage": "https://github.com/fromroots/reversiwebapp#readme",
+  "dependencies": {
+    "node-static": "^0.7.11",
+    "socket.io": "^2.2.0"
+  }
+}

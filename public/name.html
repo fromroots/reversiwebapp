@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<title>Enter your username</title>
+	<script>
+		function submitForm()
+		{
+			var username=$('#username').val();
+			window.location.href='lobby.html?username='+username;
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<h1 class="username">Enter Your User Name</h1>
+	<form onsubmit="submitForm(); return false;" class="usernameForm">
+		<input type="text" id="username" placeholder="Enter Your Username Here .....">
+		<button type="submit">Done</button>
+	</form>
+	</div>
+	
+</body>
+</html>
