@@ -176,7 +176,7 @@ var success_data={
 	message:message   
 };
 
-io.sockets.in(room).emit('send message response',success_data);
+io.sockets.in(room).emit('send_message_response',success_data);
 log('message sent to room'+room+'by'+username);
 });
 

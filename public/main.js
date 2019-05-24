@@ -61,7 +61,7 @@ socket.on('send_message_response',function(payload){
         alert(payload.message);
         return;
     }
-    $('#messages1').append('<p><b>'+payload.username+'says:</b>'+payload.message+'</p>');
+    $('#messages').append('<p><b>'+payload.username+'&nbsp;&nbsp;says:&nbsp;&nbsp;</b>'+payload.message+'</p>');
 });
 
 
