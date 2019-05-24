@@ -14,9 +14,15 @@
     <br>
     <br>
     <div id="messages" style="text-align: center;color:white;">
-
     </div>
-
+    <div class="chatbox">
+        <form onsubmit="send_message(); return false;" class="usernameForm">
+            <input type="text" id="send_message_holder" value='' placeholder="Enter Your Chat message here ....."/>
+            <button type="submit">SEND</button>
+        </form>
+    </div>
+    <div id="messages1" style="text-align: center;color:white;">
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
     <script src="main.js">
 
