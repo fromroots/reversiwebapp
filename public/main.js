@@ -23,7 +23,7 @@ if('undefined' == typeof username || !username)
 }
 
 
-$('#messages').append('<h4>'+ username + '</h4>');
+$('#messages').append('<h2>'+ username + '</h2>');
 
 
 
