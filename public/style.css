@@ -189,3 +189,9 @@ box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
 h1{
 	font-family: 'Roboto Condensed', sans-serif;
 }
+
+#players button
+{
+	margin-bottom: 2px; 
+	border:1px solid red;
+}
