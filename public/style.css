@@ -149,13 +149,13 @@ box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
 .usernameForm
 {
 	width: 500px;
-	margin:0 auto;
+	margin:10px auto;
 }
 .usernameForm input
 {
-	display: block;
+	display: inline-block;
 	width:300px;
-	margin:30px auto;
+	margin:30px 10px;
 	height: 40px;
 	padding-left: 5px;
 	font-size: 16px;
@@ -168,8 +168,7 @@ box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.75);*/
 }
 .usernameForm button
 {
-	display:block;
-	margin:0 auto;
+	display:inline;
 	height: 36px;
 	width: 100px;
 	/*text-transform:uppercase;

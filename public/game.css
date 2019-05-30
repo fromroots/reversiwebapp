@@ -1,0 +1,17 @@
+body
+{
+    background-color: green;
+}
+table#game_board
+{
+   margin: auto;
+   border:10px solid rgb(100, 100, 100)
+}
+table#game_board td{
+    padding: 5px;
+    border: 1px solid rgb(50, 50, 50);
+}
+#messages p
+{
+margin: 0px;
+}
