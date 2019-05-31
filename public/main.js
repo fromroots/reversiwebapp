@@ -352,9 +352,8 @@ socket.on('game_update',function(payload)
              {
                  if(old_board[row][column] == '?' && board[row][column] == ' ')
                  {
-                     $('#'+row+'_'+column).html('<img src="assets/images/empty.gif" alt="empty square" />');
+                     $('#'+row+'_'+column).html('<img src="assets/images/empty.png" alt="empty square" />');
                  }
-             }
              else if(old_board[row][column] == '?' && board[row][column] == 'w')
                 {
                     $('#'+row+'_'+column).html('<img src="assets/images/empty_to_white.gif" alt="white square" />');
@@ -393,6 +392,7 @@ socket.on('game_update',function(payload)
                 }
                 
          }
+        }
      }
      old_board= board;
 });

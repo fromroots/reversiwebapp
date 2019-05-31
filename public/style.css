@@ -26,7 +26,7 @@ header
 .logo
 {
 	width: 120px;
-	background-image: url(assets/logo.png);
+	background-image: url(assets/images/logo.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
@@ -79,7 +79,7 @@ nav ul li a
 	height: 230px;
 	margin:10px auto;
 	display: flex;
-	background-image: url(assets/Bottom.png);
+	background-image: url(assets/images/Bottom.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: contain;
