@@ -100,10 +100,10 @@ else
 
      
 /**manage the message that new player has joined */
-var newHTML ='<p>'+payload.username+' just entered the lobby</p>';
+var newHTML ='<p>'+payload.username+' just entered the room</p>';
 var newNode =$(newHTML);
 newNode.hide();
-$('#messages').append(newNode);
+$('#messages').prepend(newNode);
 newNode.slideDown(1000);
 });
 
@@ -137,7 +137,7 @@ if(dom_elements.length != 0)
 var newHTML ='<p>'+payload.username+' has left the lobby</p>';
 var newNode =$(newHTML);
 newNode.hide();
-$('#messages').append(newNode);
+$('#messages').prepend(newNode);
 newNode.slideDown(1000);
 });
 
@@ -249,6 +249,7 @@ function send_message()
     payload.message = $('#send_message_holder').val();
     console.log('**** client log message:\'send_message\' \'payload:'+JSON.stringify(payload));
     socket.emit('send_message',payload);
+    $('#send_message_holder').val('');
 
 }
 socket.on('send_message_response',function(payload){
@@ -323,6 +324,8 @@ var old_board = [
                ['?','?','?','?','?','?','?','?'],
                ['?','?','?','?','?','?','?','?']
 ];
+var my_color = ' ';
+
 socket.on('game_update',function(payload)
 {
     console.log('**** client log message: \'game_update\'\n\tpayload:'+JSON.stringify(payload));
@@ -342,6 +345,21 @@ socket.on('game_update',function(payload)
         return;
     }
     /* update my color */
+    if(socket.id == payload.game.player_white.socket)
+    {
+        my_color='white';
+    }
+    else if(socket.id == payload.game.player_black.socket)
+    {
+        my_color ='black';
+    }
+    else
+    {
+        window.location.href='lobby.html?username='+username;
+        return;
+    }
+    $('#my_color').html('<h3 id="my_color">I am ' +my_color+'</h3>');
+
     /* animate changes to the board */
      var row,column;
      for(row=0;row<8;row++){
@@ -390,11 +408,40 @@ socket.on('game_update',function(payload)
                 {
                     $('#'+row+'_'+column).html('<img src="assets/images/error.gif" alt="error" />');
                 }
-                
+               /* set up interactivity  */
+               $('#'+row+'_'+column).off('click');
+               if(board[row][column] == ' ')
+               {
+                   $('#'+row+'_'+column).addClass('hovered_over');
+                   $('#'+row+'_'+column).click(function(r,c){
+                              return function(){
+                                 var payload ={};
+                                 payload.row =r;
+                                 payload.column=c;
+                                 payload.color=my_color;
+                                 console.log('*** client log message \'play_token\' payload'+JSON.stringify(payload));
+                                 socket.emit('play_token',payload);
+                              };
+                   }(row,column));
+               }
+                else
+                {
+                    $('#'+row+'_'+column).removeClass('hovered_over');
+                }
          }
         }
      }
      old_board= board;
 });
 
+socket.on('play_token_response',function(payload)
+{
+        console.log('*** client log message\'play_token_response\'\n\tpayload:'+JSON.stringify(payload));
+        /* check for a good play token response */
+        if(payload.result == 'fail'){
+            console.log(payload.message);
+            alert(payload.message);
+            return;
+        }
+});
 

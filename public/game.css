@@ -15,3 +15,14 @@ table#game_board td{
 {
 margin: 0px;
 }
+td.hovered_over
+{
+    transition: all .3s ease-out;
+}
+td.hovered_over:hover{
+
+    background-image:url('assets/images/hover.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
