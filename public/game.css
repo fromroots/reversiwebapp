@@ -26,3 +26,7 @@ td.hovered_over:hover{
     background-repeat: no-repeat;
     cursor: pointer;
 }
+#game_over
+{
+    text-align: center;
+}

@@ -311,6 +311,10 @@ $(function(){
     console.log('**** client log message: \'join_room\'payload:'+JSON.stringify(payload));
   
    socket.emit('join_room',payload);
+
+   $('#quit').append('<a href="lobby.html?username='+username+'" class="btn btn-danger btn-default active" role="button" aria-pressed="true">Quit</a>');
+
+
 });
 
 
@@ -361,10 +365,18 @@ socket.on('game_update',function(payload)
     $('#my_color').html('<h3 id="my_color">I am ' +my_color+'</h3>');
 
     /* animate changes to the board */
+    var blacksum=0;
+    var whitesum=0;
      var row,column;
      for(row=0;row<8;row++){
          for(column = 0; column < 8 ; column++)
          {
+             if(board[row][column] == 'b'){
+                 blacksum++;
+             }
+             if(board[row][column] == 'w'){
+                whitesum++;
+            }
              /* if a board space has changed  */
              if(old_board[row][column] != board[row][column])
              {
@@ -431,6 +443,8 @@ socket.on('game_update',function(payload)
          }
         }
      }
+     $('#blacksum').html(blacksum);
+     $('#whitesum').html(whitesum);
      old_board= board;
 });
 
@@ -445,3 +459,15 @@ socket.on('play_token_response',function(payload)
         }
 });
 
+socket.on('game_over',function(payload)
+{
+        console.log('*** client log message\'game over\'\n\tpayload:'+JSON.stringify(payload));
+        /* check for a good play token response */
+        if(payload.result == 'fail'){
+            console.log(payload.message);
+            return;
+        }
+        /* jump to a new page */
+        $('#game_over').html('<h1>Game over</h1><h2>'+payload.who_won+' won!</h2>');
+        $('#game_over').append('<a href="lobby.html?username='+username+'" class="btn btn-primary btn-large active" role="button" aria-pressed="true">Return to the Lobby</a>')
+});
