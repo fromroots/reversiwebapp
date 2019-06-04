@@ -68,11 +68,11 @@ var players=[];
 /*** check that the client sent a playload */
 if('undefined' ==typeof payload || !payload)
 {
-	var error_message ='join_room had no payload,command aborted';
-	log(error_message);
+	var error_messsage ='join_room had no payload,command aborted';
+	log(error.message);
 	socket.emit('join_room_response',{
 		   result:'fail',
-		   message:error_message
+		   message:error_messsage
 	});
 	return;
 }
@@ -80,11 +80,11 @@ if('undefined' ==typeof payload || !payload)
 var room=payload.room;
 if('undefined' ==typeof room || !room)
 {
-	var error_message ='join_room didn\'t specify a room,command aborted';
-	log(error_message);
+	var error_messsage ='join_room didn\'t specify a room,command aborted';
+	log(error.message);
 	socket.emit('join_room_response',{
 		   result:'fail',
-		   message:error_message
+		   message:error_messsage
 	});
 	return;
 }
@@ -93,11 +93,11 @@ if('undefined' ==typeof room || !room)
 var username=payload.username;
 if('undefined' ==typeof username || !username)
 {
-	var error_message ='join_room didn\'t specify a username,command aborted';
-	log(error_message);
+	var error_messsage ='join_room didn\'t specify a username,command aborted';
+	log(error.message);
 	socket.emit('join_room_response',{
 		   result:'fail',
-		   message:error_message
+		   message:error_messsage
 	});
 	return;
 }
@@ -169,22 +169,22 @@ socket.on('send_message',function(payload){
 
 if('undefined' ==typeof payload || !payload)
 {
-var error_message ='send_message had no payload,command aborted';
-log(error_message);
+var error_messsage ='send_message had no payload,command aborted';
+log(error.message);
 socket.emit('send_message_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
 var room=payload.room;
 if('undefined' ==typeof room || !room)
 {
-var error_message ='send_message didn\'t specify a room,command aborted';
-log(error_message);
+var error_messsage ='send_message didn\'t specify a room,command aborted';
+log(error.message);
 socket.emit('send_message_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -192,11 +192,11 @@ return;
 var username=players[socket.id].username;
 if('undefined' ==typeof username || !username)
 {
-var error_message ='send_message didn\'t specify a username,command aborted';
-log(error_message);
+var error_messsage ='send_message didn\'t specify a username,command aborted';
+log(error.message);
 socket.emit('send_message_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -204,11 +204,11 @@ return;
 var message=payload.message;
 if('undefined' ==typeof message || !message)
 {
-var error_message ='send_message didn\'t specify a username,command aborted';
-log(error_message);
+var error_messsage ='send_message didn\'t specify a username,command aborted';
+log(error.message);
 socket.emit('send_message_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -233,11 +233,11 @@ socket.on('invite',function(payload){
 
 if('undefined' === typeof payload || !payload)
 {
-var error_message ='invite had no payload,command aborted';
-log(error_message);
+var error_messsage ='invite had no payload,command aborted';
+log(error.message);
 socket.emit('invite_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -246,11 +246,11 @@ return;
 var username=players[socket.id].username;
 if('undefined' === typeof username || !username)
 {
-var error_message ='invite can\'t identify who sent the message';
-log(error_message);
+var error_messsage ='invite can\'t identify who sent the message';
+log(error.message);
 socket.emit('invite_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -258,11 +258,11 @@ return;
 var requested_user=payload.requested_user;
 if('undefined' ==typeof requested_user || !requested_user)
 {
-var error_message ='invite didn\'t specify a username,command aborted';
-log(error_message);
+var error_messsage ='invite didn\'t specify a username,command aborted';
+log(error.message);
 socket.emit('invite_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -273,11 +273,11 @@ var roomObject =io.sockets.adapter.rooms[room];
 /* make sure that user being is in the room */
 if(!roomObject.sockets.hasOwnProperty(requested_user) )
 {
-	var error_message ='invite requested a user that wasn\'t in the room,command aborted';
-	log(error_message);
+	var error_messsage ='invite requested a user that wasn\'t in the room,command aborted';
+	log(error.message);
 	socket.emit('invite_response',{
 		   result:'fail',
-		   message:error_message
+		   message:error_messsage
 });
 return;
 }
@@ -313,11 +313,11 @@ socket.on('uninvite',function(payload){
 
 if('undefined' === typeof payload || !payload)
 {
-var error_message ='uninvite had no payload,command aborted';
-log(error_message);
+var error_messsage ='uninvite had no payload,command aborted';
+log(error.message);
 socket.emit('uninvite_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -326,11 +326,11 @@ return;
 var username=players[socket.id].username;
 if('undefined' === typeof username || !username)
 {
-var error_message ='uninvite can\'t identify who sent the message';
-log(error_message);
+var error_messsage ='uninvite can\'t identify who sent the message';
+log(error.message);
 socket.emit('uninvite_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -338,11 +338,11 @@ return;
 var requested_user=payload.requested_user;
 if('undefined' ==typeof requested_user || !requested_user)
 {
-var error_message ='uninvite didn\'t specify a username,command aborted';
-log(error_message);
+var error_messsage ='uninvite didn\'t specify a username,command aborted';
+log(error.message);
 socket.emit('uninvite_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -353,11 +353,11 @@ var roomObject =io.sockets.adapter.rooms[room];
 /* make sure that user being is in the room */
 if(!roomObject.sockets.hasOwnProperty(requested_user) )
 {
-	var error_message ='invite requested a user that wasn\'t in the room,command aborted';
-	log(error_message);
+	var error_messsage ='invite requested a user that wasn\'t in the room,command aborted';
+	log(error.message);
 	socket.emit('uninvite_response',{
 		   result:'fail',
-		   message:error_message
+		   message:error_messsage
 });
 return;
 }
@@ -392,11 +392,11 @@ socket.on('game_start',function(payload){
 
 if('undefined' === typeof payload || !payload)
 {
-var error_message ='game start had no payload,command aborted';
-log(error_message);
+var error_messsage ='game start had no payload,command aborted';
+log(error.message);
 socket.emit('game_start_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -405,11 +405,11 @@ return;
 var username=players[socket.id].username;
 if('undefined' === typeof username || !username)
 {
-var error_message ='game start can\'t identify who sent the message';
-log(error_message);
+var error_messsage ='game start can\'t identify who sent the message';
+log(error.message);
 socket.emit('game_start_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -417,11 +417,11 @@ return;
 var requested_user=payload.requested_user;
 if('undefined' ==typeof requested_user || !requested_user)
 {
-var error_message ='uninvite didn\'t specify a username,command aborted';
-log(error_message);
+var error_messsage ='uninvite didn\'t specify a username,command aborted';
+log(error.message);
 socket.emit('uninvite_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -432,11 +432,11 @@ var roomObject =io.sockets.adapter.rooms[room];
 /* make sure that user being is in the room */
 if(!roomObject.sockets.hasOwnProperty(requested_user) )
 {
-	var error_message ='game start requested a user that wasn\'t in the room,command aborted';
-	log(error_message);
+	var error_messsage ='game start requested a user that wasn\'t in the room,command aborted';
+	log(error.message);
 	socket.emit('game_start_response',{
 		   result:'fail',
-		   message:error_message
+		   message:error_messsage
 });
 return;
 }
@@ -472,11 +472,11 @@ socket.on('play_token',function(payload){
 
 if('undefined' === typeof payload || !payload)
 {
-var error_message ='play_token had no payload,command aborted';
-log(error_message);
+var error_messsage ='play_token had no payload,command aborted';
+log(error.message);
 socket.emit('play_token_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -485,11 +485,11 @@ return;
 var player=players[socket.id];
 if('undefined' === typeof player || !player)
 {
-var error_message ='game start can\'t identify who sent the message';
-log(error_message);
+var error_messsage ='game start can\'t identify who sent the message';
+log(error.message);
 socket.emit('play_token_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -497,11 +497,11 @@ return;
 var username=players[socket.id].username;
 if('undefined' === typeof username || !username)
 {
-var error_message ='play token can\'t identify who sent the message';
-log(error_message);
+var error_messsage ='play token can\'t identify who sent the message';
+log(error.message);
 socket.emit('play_token_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -509,11 +509,11 @@ return;
 var game_id = players[socket.id].room;
 if('undefined' === typeof game_id || !game_id)
 {
-var error_message ='play token can\'t find your game board';
-log(error_message);
+var error_messsage ='play token can\'t find your game board';
+log(error.message);
 socket.emit('play_token_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -522,11 +522,11 @@ return;
 var row = payload.row;
 if('undefined' === typeof row || row < 0 || row > 7)
 {
-var error_message ='play token didn\'t specify a valid row ,command aborted';
-log(error_message);
+var error_messsage ='play token didn\'t specify a valid row ,command aborted';
+log(error.message);
 socket.emit('play_token_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -535,11 +535,11 @@ return;
 var column = payload.column;
 if('undefined' === typeof column || column < 0 || column > 7)
 {
-var error_message ='play token didn\'t specify a valid column ,command aborted';
-log(error_message);
+var error_messsage ='play token didn\'t specify a valid column ,command aborted';
+log(error.message);
 socket.emit('play_token_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -549,11 +549,11 @@ return;
 var color = payload.color;
 if('undefined' === typeof color || !color || (color != 'white' &&  color != 'black'))
 {
-var error_message ='play token didn\'t specify a valid color ,command aborted';
-log(error_message);
+var error_messsage ='play token didn\'t specify a valid color ,command aborted';
+log(error.message);
 socket.emit('play_token_response',{
 	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -562,35 +562,11 @@ return;
 var game = games[game_id];
 if('undefined' === typeof game || !game)
 {
-var error_message ='play token couldn\'t find your game board';
-log(error_message);
+var error_messsage ='play token couldn\'t find your game board';
+log(error.message);
 socket.emit('play_token_response',{
 	   result:'fail',
-	   message:error_message
-});
-return;
-}
-
-
-/* if the current attempt at playong the token is out of turn then error*/
-if(color !== game.whose_turn){
-	var error_message ='play token message played out of turn';
-log(error_message);
-socket.emit('play_token_response',{
-	   result:'fail',
-	   message:error_message
-});
-return;
-}
-
-
-/* if the wrong socket is playing the color */
-if(((game.whose_turn === 'white') && (game.player_white.socket != socket.id)) || ((game.whose_turn === 'black') && (game.player_black.socket != socket.id))) {
-var error_message ='play token turn played by wrong player';
-log(error_message);
-socket.emit('play_token_response',{
-	   result:'fail',
-	   message:error_message
+	   message:error_messsage
 });
 return;
 }
@@ -637,7 +613,7 @@ function create_new_game(){
 	new_game.player_black.username = '';
 	var d = new Date();
 	new_game.last_move_time = d.getTime();
-	new_game.whose_turn = 'black';
+	new_game.whose_turn = 'white';
 	new_game.board = [
 [' ',' ',' ',' ',' ',' ',' ',' '],
 [' ',' ',' ',' ',' ',' ',' ',' '],
