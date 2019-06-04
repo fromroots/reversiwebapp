@@ -623,7 +623,7 @@ send_game_update(socket,game_id,'played a token');
 });
 
 });
-/* this code related to game state */
+/* this code related to game stae */
 
 var games=[];
 

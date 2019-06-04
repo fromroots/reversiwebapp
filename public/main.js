@@ -334,7 +334,7 @@ socket.on('game_update',function(payload)
 {
     console.log('**** client log message: \'game_update\'\n\tpayload:'+JSON.stringify(payload));
 
-    /*  check for a good board update */
+    /*  check for a good board upda*/
     if(payload.result == 'fail')
     {
         console.log(payload.message);
