@@ -1,12 +1,8 @@
-body
-{
-    background-color: green;
-}
 table#game_board
 {
    margin:  10px auto;
    border-collapse:collapse;
-   border:10px solid rgb(100, 100, 100)
+   border:10px solid #fff;
 }
 table#game_board td{
     border: 1px solid rgb(50, 50, 50);
@@ -29,4 +25,24 @@ td.hovered_over:hover{
 #game_over
 {
     text-align: center;
+}
+#eee{
+    position: absolute;
+    left: -100px;
+    top:5px;
+}
+.circle
+{
+    display: inline-block;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+.white_circle
+{
+    background-color: white;
+}
+.black_circle
+{
+    background-color: black;
 }

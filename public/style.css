@@ -9,18 +9,19 @@
 }
 body
 {
-background-color: green;
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(217,212,147,1) 0%, rgba(0,212,255,1) 100%);
 }
 .container
 {
     padding-left: 100px;
-    padding-right: 100px;
+	padding-right: 100px;
+	text-align: center;
 }
 header
 {
 	height: 120px;
 	display: flex;
-	margin-top: 10px;
 	justify-content: space-between;
 }
 .logo
@@ -33,7 +34,7 @@ header
 	position: relative;
     margin-left: 100px;
 }
-logo::after
+.logo::after
 {
 	content: 'REVERSI';
 	position: absolute;
@@ -41,14 +42,12 @@ logo::after
 	top:50%;
 	font-size: 35px;
 	width: 100px;
-	color:#fff;
 	transform: translateY(-50%);
     font-family: 'Special Elite', cursive;
 }
 nav
 {
-	width: 400px;
-	margin: 0 auto;
+	margin-right: 200px;
 }
 nav ul
 {
@@ -61,17 +60,17 @@ nav ul li
 }
 nav ul li a
 {
-	//text-decoration: none;
-	//text-transform: uppercase;
+	text-decoration: none;
+	text-transform: uppercase;
 	margin-left: 30px;
 	margin-right: 30px;
-	//color: #fff;
+	color: #ffffff;
 	font-size: 25px;
-	//font-family: 'Roboto Condensed', sans-serif;
+	font-family: 'Roboto Condensed', sans-serif;
 }
 .highlight
 {
-	//border-bottom: 2px solid white;
+	border-bottom: 2px solid #ffffff;
 }
 .gamebox
 {
@@ -84,21 +83,6 @@ nav ul li a
 	background-repeat: no-repeat;
 	background-size: contain;
 }
-.row
-{
-	flex:1;
-	display: flex;
-	flex-direction:column;
-}
-.row>div
-{
-	flex:1;
-	margin:20px;
-	border-radius: 50%;
-	-webkit-box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
--moz-box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
-box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
-}
 .black
 {
 	background-color: #000;
@@ -107,82 +91,62 @@ box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
 {
 	background-color: white;
 }
-#myblack
-{
-   boder:3px solid red;
-}
 .playBtn
 {
-	display: block;
-	width: 120px;
+	display: inline-block;
 	margin:50px auto;
 	font-size: 24px;
 	text-align: center;
 	text-decoration:none;
-	/*padding-top: 8px;
-	padding-bottom: 8px;
+	padding: 5px 14px;
 	text-transform:uppercase;
 	font-weight: bold;
-
 	letter-spacing: 2px;
 	color: white;
 	background-color: #000;
 	-webkit-box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
 -moz-box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
 box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
-	font-family: 'Roboto Condensed', sans-serif;*/
+	font-family: 'Roboto Condensed', sans-serif;
 }
-.playBtn img
+.about-content
 {
-	display: inline-block;
-	height: 22px;
-    width: 22px;
-	margin-left: 2px;
+	margin-top: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	font-size: 24px;
+	text-align: justify;
+	line-height: 30px;
 }
 .username
 {
-	 //font-family: 'Special Elite', cursive;
+	 font-family: 'Special Elite', cursive;
 	 text-align: center;
-	 color:white;
-	 margin:50px 0px;
+	 color:#282828;
+	 margin:40px 0px;
 }
 .usernameForm
 {
-	width: 500px;
-	margin:10px auto;
+	text-align:center;
 }
 .usernameForm input
 {
 	display: inline-block;
 	width:300px;
-	margin:30px 10px;
 	height: 40px;
 	padding-left: 5px;
 	font-size: 16px;
 	outline: none;
 	border: none;
 	color: #000;
-	/*-webkit-box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.75);
 -moz-box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.75);
-box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.75);*/
+box-shadow: 1px 1px 5px -1px rgba(0,0,0,0.75);
 }
 .usernameForm button
 {
-	display:inline;
-	height: 36px;
-	width: 100px;
-	/*text-transform:uppercase;
-	font-weight: bold;
-	font-size: 22px;
-	letter-spacing: 2px;
-	border:none;
-	line-height: 30px;
-	color: white;
-	background-color: #000;
-	-webkit-box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
--moz-box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
-box-shadow: 1px 1px 11px -3px rgba(0,0,0,0.75);
-	font-family: 'Roboto Condensed', sans-serif;*/
+	display:block;
+	border: none;
 	cursor: pointer;
 }
 h1{
@@ -192,5 +156,30 @@ h1{
 #players button
 {
 	margin-bottom: 2px; 
-	border:1px solid red;
+}
+#players h4{
+	display: inline-block;
+	text-transform: capitalize;
+}
+#messages p{
+	margin-bottom: 2px;
+}
+.main
+{
+	position: relative;
+	height: 50px;
+}
+.left
+{
+	position: absolute;
+	left: 0px;
+}
+.right
+{
+	position: absolute;
+	right: 0px;
+}
+.mar
+{
+	margin: 8px 0px;
 }

@@ -74,12 +74,14 @@ if(dom_elements.length == 0)
 
     nodeA.addClass('w-100');
 
-    nodeB.addClass('col-9 text-right');
-    nodeB.append('<h4>'+payload.username+'</h4>');
+    nodeB.addClass('main');
+    nodeB.append('<h4 style="display:inline-block;text-transform:capitalize;" class="left">'+payload.username+'</h4>');
 
-    nodeC.addClass('col-3 text-left');
+    //nodeC.addClass('col-3 text-left');
     var buttonC = makeInviteButton(payload.socket_id);
-    nodeC.append(buttonC);
+    buttonC.addClass('right');
+    nodeB.append(buttonC);
+    nodeB.addClass('mar');
 
     nodeA.hide();
     nodeB.hide();
@@ -93,6 +95,7 @@ else
 {
    uninvite(payload.socket_id);
    var buttonC=makeInviteButton(payload.socket_id);
+   buttonC.addClass('right');
    $('.socket_'+payload.socket_id+' button').replaceWith(buttonC);
    dom_elements.slideDown(1000);
 }
@@ -100,7 +103,7 @@ else
 
      
 /**manage the message that new player has joined */
-var newHTML ='<p>'+payload.username+' just entered the room</p>';
+var newHTML ='<p style="text-align:center;"><b style="text-transform:capitalize;">'+payload.username+'</b> just entered the room</p>';
 var newNode =$(newHTML);
 newNode.hide();
 $('#messages').prepend(newNode);
@@ -134,7 +137,7 @@ if(dom_elements.length != 0)
 
     
 /**manage the message that new player has joined */
-var newHTML ='<p>'+payload.username+' has left the lobby</p>';
+var newHTML ='<p style="text-align:center;"><b style="text-transform:capitalize;">'+payload.username+'</b> has left the lobby</p>';
 var newNode =$(newHTML);
 newNode.hide();
 $('#messages').prepend(newNode);
@@ -258,7 +261,7 @@ socket.on('send_message_response',function(payload){
         alert(payload.message);
         return;
     }
-    var newHTML = '<p><b>'+payload.username+'&nbsp;&nbsp;says:&nbsp;&nbsp;</b>'+payload.message+'</p>';
+    var newHTML = '<p><b style="text-transform:capitalize;display:inline;font-size:18px;">'+payload.username+'&nbsp;&nbsp;says:&nbsp;&nbsp;</b>'+payload.message+'</p>';
     var newNode=$(newHTML);
     newNode.hide();
     $('#messages').append(newNode);
@@ -279,6 +282,7 @@ function makeInvitedButton(socket_id)
 {
     var newHTML='<button type=\'button\' class=\'btn btn-primary\'>Invited</button>';
     var newNode=$(newHTML);
+    newNode.addClass('right');
     newNode.click(function(){
         uninvite(socket_id);
         });
@@ -289,6 +293,7 @@ function makePlayButton(socket_id)
 {
     var newHTML='<button type=\'button\' class=\'btn btn-success\'>Play</button>';
     var newNode=$(newHTML);
+    newNode.addClass('right');
     newNode.click(function(){
         game_start(socket_id);
         });
@@ -299,6 +304,7 @@ function makeEngagedButton()
 {
     var newHTML='<button type=\'button\' class=\'btn btn-danger\'>Engaged</button>';
     var newNode=$(newHTML);
+    newNode.addClass('right');
     return(newNode);
 }
 
@@ -363,10 +369,16 @@ socket.on('game_update',function(payload)
         window.location.href='lobby.html?username='+username;
         return;
     }
-    $('#my_color').html('<h3 id="my_color">I am ' +my_color+'</h3>');
+    if(my_color === 'white')
+    {
+    $('#my_color').html('<h3 id="my_color">I am <b style="color:white;">' +my_color+'</b></h3>');
+    }
+    if(my_color === 'black')
+    {
+    $('#my_color').html('<h3 id="my_color">I am <b style="color:black;">' +my_color+'</b></h3>');
+    }
 
-
-    $('#my_color').append('<h4>It is '+payload.game.whose_turn+'\s turn.Elapsed time <span id="elapsed"></span></h4>');
+    $('#my_color').append('<h4>It is '+payload.game.whose_turn+'\s turn.<h4 id="eee">Elapsed time <span id="elapsed"></span></h4></h4>');
 
     clearInterval(interval_timer);
     interval_timer =setInterval(function(last_time){

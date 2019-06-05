@@ -15,9 +15,10 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-	<title>Reversi Game Lobby</title>
+    <title>Reversi Game Lobby</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body style="background-color: green;color: white;">
+<body>
 	<div class="container">
 <div class="row">
     <div class="offset-2 col text-center">
@@ -33,10 +34,14 @@
 </div>
 <div class="row text-center">
     <div class="col">
-        <span class="align-middle" id="whitesum"></span>
-        <img src="assets/images/empty_to_white.gif" alt="white-score">
-        <span class="align-middle" id="blacksum"></span>
-        <img src="assets/images/empty_to_black.gif" alt="black-score">
+        <span class="align-middle" id="whitesum" style="font-size:20px;font-family:fantasy;display: inline-block;height: 60px;width:20px;"></span>
+        <span class="white_circle circle">
+
+        </span>
+        <span class="align-middle" id="blacksum" style="font-size:20px;font-family:fantasy;display: inline-block;height: 60px;width:20px;"></span>
+        <span class="black_circle circle">
+
+            </span>
     </div>
 </div>
 <div class="row">
@@ -138,9 +143,23 @@
 
     </table>
         </div>
+
+
+        <div class="col chatbox" style="text-align:left;">
+                <h1 class="username" style="margin: 5px;padding:2px 8px;text-align: left;background-color:#000;color: white;display: inline-block;">Messages</h1>
+                <form onsubmit="send_message(); return false;" class="usernameForm" style="text-align: left;">
+                    <input type="text" id="send_message_holder"  style="margin: 12px 0px;padding: 3px;" value=''
+                        placeholder="Enter Your Chat message here ....." />
+                    <button type="submit" class="playBtn" style="margin: 12px 0px;padding:2px 4px;">SEND</button>
+                </form>   
+            <br>
+            <div id="messages" style="width:300px;text-align:left;color:white;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    
+            </div>
+        </div>
     </div>
 
-
+<!--
     <div class="chatbox" style="text-align:left;">
         <h3 style="color:white;padding:5px 0px;text-transform: uppercase;">messages</h3>
         <form onsubmit="send_message(); return false;" class="usernameForm">
@@ -151,7 +170,8 @@
     <br>
     <div id="messages" style="text-align:left;color:white;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
         
-    </div>
+    </div>-->
+
 </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js" integrity="sha256-yr4fRk/GU1ehYJPAs8P4JlTgu0Hdsp4ZKrx8bDEDC3I=" crossorigin="anonymous"></script>
     <script src="main.js">
